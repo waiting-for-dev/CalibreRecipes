@@ -1,0 +1,20 @@
+from calibre.web.feeds.news import BasicNewsRecipe
+
+class BlogsSociales (BasicNewsRecipe):
+   __author__ = 'Marc Busqué <marc@lamarciana.com>' #Thanks to atlantique http://www.mobileread.com/forums/member.php?u=67876
+   __url__ = 'http://www.lamarciana.com'
+   __version__ = '1.0'
+   __license__   = 'GPL v3'
+   __copyright__ = '2012, Marc Busqué <marc@lamarciana.com>'
+   title = u'Blogs sociales'
+   description = u'Recopilación de blogs de temática social'
+   language = 'es'
+   tags = 'social, contrainformación, información alternativa'
+   oldest_article = 7
+   remove_empty_feeds = True
+   no_stylesheets = True
+
+   feeds = [
+         (u'Gervasio Sánchez', u'http://blogs.heraldo.es/gervasiosanchez/?feed=rss2'),
+         (u'Hernán Zin', u'http://blogs.20minutos.es/enguerra/feed/'),
+         ]
