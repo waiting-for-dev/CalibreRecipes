@@ -10,7 +10,7 @@ class BlogsSociales (BasicNewsRecipe):
    description = u'Recopilación de blogs de temática social'
    language = 'es'
    tags = 'social, contrainformación, información alternativa'
-   oldest_article = 7
+   oldest_article = 60
    remove_empty_feeds = True
    no_stylesheets = True
 
