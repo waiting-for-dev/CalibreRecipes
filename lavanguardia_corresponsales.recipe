@@ -3,10 +3,10 @@ from calibre.web.feeds.news import BasicNewsRecipe
 class LaVanguardiaCorresponsalesRecipe (BasicNewsRecipe):
    __author__ = 'Marc Busqué <marc@lamarciana.com>'
    __url__ = 'http://www.lamarciana.com'
-   __version__ = '1.0'
+   __version__ = '1.0.1'
    __license__   = 'GPL v3'
    __copyright__ = '2012, Marc Busqué <marc@lamarciana.com>'
-   title = u'La Vanguardia - Internacional'
+   title = u'La Vanguardia - Blogs de los corresponsales'
    description = u'Blogs de los corresponsales de La Vanguardia en este mismo periódico'
    url = 'http://www.lavanguardia.com/blogs/index.html'
    language = 'es'
