@@ -1,0 +1,30 @@
+from calibre.web.feeds.news import BasicNewsRecipe
+import re
+
+class LaVanguardiaInternacinalRecipe (BasicNewsRecipe):
+   __author__ = 'Marc Busqué <marc@lamarciana.com>'
+   __url__ = 'http://www.lamarciana.com'
+   __version__ = '1.0'
+   __license__   = 'GPL v3'
+   __copyright__ = '2012, Marc Busqué <marc@lamarciana.com>'
+   title = u'La Vanguardia - Internacinal'
+   description = u'Sección Internacional de La Vanguardia'
+   url = 'http://www.lavanguardia.com/internacional/index.html'
+   language = 'es'
+   tags = 'información, internacional '
+   oldest_article = 1
+   remove_empty_feeds = True
+   no_stylesheets = True
+   keep_only_tags = [
+         dict(name='div', attrs={'class': re.compile('^.*noticia.*$', re.IGNORECASE)})
+         ]
+   remove_tags = [
+         dict(name='div', attrs={'class': 'jstoolbar'}),
+         dict(name='div', attrs={'class': 'redes_sociales'}),
+         dict(name='div', attrs={'class': 'nav'}),
+         ]
+   extra_css = 'img {max-width: 100%; display: block; margin: auto;} .contenido p, .cabecera, .p3 {text-align: center} .contenido p, .p3 {font-size: 85%}'
+
+   feeds = [
+         (u'Internacional', u'http://feeds.feedburner.com/lavanguardia/internacional'),
+         ]
