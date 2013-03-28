@@ -1,13 +1,13 @@
 from calibre.web.feeds.news import BasicNewsRecipe
 import re
 
-class LaVanguardiaInternacinalRecipe (BasicNewsRecipe):
+class LaVanguardiaInternacionalRecipe (BasicNewsRecipe):
    __author__ = 'Marc Busqué <marc@lamarciana.com>'
    __url__ = 'http://www.lamarciana.com'
-   __version__ = '1.0'
+   __version__ = '1.0.1'
    __license__   = 'GPL v3'
    __copyright__ = '2012, Marc Busqué <marc@lamarciana.com>'
-   title = u'La Vanguardia - Internacinal'
+   title = u'La Vanguardia - Internacional'
    description = u'Sección Internacional de La Vanguardia'
    url = 'http://www.lavanguardia.com/internacional/index.html'
    language = 'es'
