@@ -1,4 +1,5 @@
 from calibre.web.feeds.news import BasicNewsRecipe
+import re
 
 class AListApart (BasicNewsRecipe):
    __author__ = 'Marc Busqué <marc@lamarciana.com>'
@@ -19,3 +20,9 @@ class AListApart (BasicNewsRecipe):
    feeds = [
          (u'A List Apart', u'http://feeds.feedburner.com/alistapart/abridged'),
          ]
+
+   def image_url_processor(self, baseurl, url):
+     if re.findall('alistapart\.com', url):
+       return 'http:'+url 
+     else:
+       return url
