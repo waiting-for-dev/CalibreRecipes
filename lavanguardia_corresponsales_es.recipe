@@ -1,9 +1,10 @@
 from calibre.web.feeds.news import BasicNewsRecipe
+import urllib
 
 class LaVanguardiaCorresponsalesRecipe (BasicNewsRecipe):
    __author__ = 'Marc Busqué <marc@lamarciana.com>'
    __url__ = 'http://www.lamarciana.com'
-   __version__ = '1.0.1'
+   __version__ = '1.0.2'
    __license__   = 'GPL v3'
    __copyright__ = '2012, Marc Busqué <marc@lamarciana.com>'
    title = u'La Vanguardia - Blogs de los corresponsales'
@@ -14,7 +15,7 @@ class LaVanguardiaCorresponsalesRecipe (BasicNewsRecipe):
    oldest_article = 30
    remove_empty_feeds = True
    no_stylesheets = True
-   extra_css = 'img {max-width: 100%; display: block; margin: auto;}'
+   extra_css = urllib.urlopen('https://raw.githubusercontent.com/laMarciana/gutenweb/master/dist/gutenweb.css').read().replace('@charset "UTF-8";', '')
 
    feeds = [
          (u'Marc Bassets - Diario de Washington', u'http://blogs.lavanguardia.com/washington/feed'),
