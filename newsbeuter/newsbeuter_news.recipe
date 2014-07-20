@@ -1,0 +1,7 @@
+# vim:fileencoding=utf-8
+from os.path import expanduser
+
+execfile(expanduser('~')+'/projects/recipes/newsbeuter/newsbeuter.recipe')
+class NewsbeuterNewsRecipe (NewsbeuterRecipe):
+    oldest_article = 1
+    NewsbeuterRecipe.newsbeuter_tag = 'news'

@@ -1,0 +1,6 @@
+# vim:fileencoding=utf-8
+from os.path import expanduser
+
+execfile(expanduser('~')+'/projects/recipes/newsbeuter/newsbeuter.recipe')
+class NewsbeuterNewspaperRecipe (NewsbeuterRecipe):
+    NewsbeuterRecipe.newsbeuter_tag = 'newspaper'

@@ -10,23 +10,28 @@ class NewsbeuterRecipe (BasicNewsRecipe):
     __version__ = '1.0.0'
     __license__   = 'GPL v3'
     __copyright__ = '2014, Marc Busqué <marc@lamarciana.com>'
-    title = u'Feeds de newsbeuter'
+    title = u'Newsbeuter feeds'
     description = u"Dynamic recipe which is created from all feeds listed in newsbeuter url file"
     tags = 'newsbeuter'
     oldest_article = 30
     remove_empty_feeds = True
     no_stylesheets = True
     extra_css = urllib.urlopen('https://raw.githubusercontent.com/laMarciana/gutenweb/master/dist/gutenweb.css').read().replace('@charset "UTF-8";', '')
-
+    newsbeuter_url = expanduser('~')+'/.newsbeuter/urls'
+    newsbeuter_tag = None
 
     def get_feeds(self):
         feeds = []
-        with open(expanduser('~')+'/.newsbeuter/urls') as f:
+        with open(self.newsbeuter_url) as f:
             for line in f:
                 matches = re.compile('(.*)\s"~(.*)"\s(.*)').match(line)
-                url = matches.group(1).encode('utf8')
-                title = matches.group(2).encode('utf8')
-                tags = matches.group(3).split(' ')
-                feeds.append([title, url])
+                url = unicode(matches.group(1))
+                title = unicode(matches.group(2))
+                newsbeuter_tags = matches.group(3).split(' ')
+                if NewsbeuterRecipe.newsbeuter_tag:
+                    if NewsbeuterRecipe.newsbeuter_tag in newsbeuter_tags:
+                        feeds.append([title, url])
+                else:
+                    feeds.append([title, url])
 
         return feeds
