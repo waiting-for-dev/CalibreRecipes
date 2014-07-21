@@ -7,11 +7,11 @@ import re
 class NewsbeuterRecipe (BasicNewsRecipe):
     __author__ = 'Marc Busqué <marc@lamarciana.com>'
     __url__ = 'http://www.lamarciana.com'
-    __version__ = '1.0.1'
+    __version__ = '1.0.2'
     __license__   = 'GPL v3'
     __copyright__ = '2014, Marc Busqué <marc@lamarciana.com>'
     title = u'Newsbeuter feeds'
-    description = u"Dynamic recipe which is created from all feeds listed in newsbeuter url file. It can filter by one tag using the following from the command line: `ebook-convert newsbeuter.recipe .epub --tags=newspaper`"
+    description = u"Dynamic recipe which is created from all feeds listed in newsbeuter url file. It can filter by tags using the following from the command line: `ebook-convert newsbeuter.recipe .epub --tags=newspaper english`. More information at: http://waiting-for-dev.github.io/blog/2014/07/20/read-your-newsbeuter-feeds-in-epub-format/"
     tags = 'newsbeuter'
     oldest_article = 10
     remove_empty_feeds = True
@@ -21,7 +21,7 @@ class NewsbeuterRecipe (BasicNewsRecipe):
 
     def __init__(self, options, *args, **kwargs):
         BasicNewsRecipe.__init__(self, options, *args, **kwargs)
-        self.newsbeuter_tag = options.tags
+        self.newsbeuter_tags = options.tags.strip().split(' ')
 
     def get_feeds(self):
         feeds = []
@@ -31,8 +31,8 @@ class NewsbeuterRecipe (BasicNewsRecipe):
                 url = unicode(matches.group(1))
                 title = unicode(matches.group(2))
                 matched_tags = matches.group(3).split(' ')
-                if self.newsbeuter_tag:
-                    if self.newsbeuter_tag in matched_tags:
+                if self.newsbeuter_tags:
+                    if set(self.newsbeuter_tags).issubset(set(matched_tags)):
                         feeds.append([title, url])
                 else:
                     feeds.append([title, url])
