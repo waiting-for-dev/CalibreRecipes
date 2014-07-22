@@ -24,8 +24,10 @@ class NewsbeuterRecipe (BasicNewsRecipe):
         BasicNewsRecipe.__init__(self, options, *args, **kwargs)
         if options.tags:
           self.newsbeuter_tags = options.tags.strip().split(',')
+          NewsbeuterRecipe.title = 'Feeds: '+', '.join(self.newsbeuter_tags)
         else:
           self.newsbeuter_tags = []
+          NewsbeuterRecipe.title = 'Feeds'
 
 
     def get_feeds(self):
