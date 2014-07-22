@@ -7,7 +7,7 @@ import re
 class NewsbeuterRecipe (BasicNewsRecipe):
     __author__ = 'Marc Busqué <marc@lamarciana.com>'
     __url__ = 'http://www.lamarciana.com'
-    __version__ = '1.0.3'
+    __version__ = '1.0.4'
     __license__   = 'GPL v3'
     __copyright__ = '2014, Marc Busqué <marc@lamarciana.com>'
     title = u'Newsbeuter feeds'
