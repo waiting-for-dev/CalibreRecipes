@@ -11,7 +11,7 @@ class NewsbeuterRecipe (BasicNewsRecipe):
     __license__   = 'GPL v3'
     __copyright__ = '2014, Marc Busqué <marc@lamarciana.com>'
     title = u'Newsbeuter feeds'
-    description = u"Dynamic recipe which is created from all feeds listed in newsbeuter url file. It can filter by tags using the following from the command line: `ebook-convert newsbeuter.recipe .epub --tags='newspaper,english'`. More information at: http://waiting-for-dev.github.io/blog/2014/07/20/read-your-newsbeuter-feeds-in-epub-format/"
+    description = u"Dynamic recipe which is created from all feeds listed in newsbeuter url file (~/.newsbeuter/urls). Lines of that file must be in the format 'http://address_to_the_feed.com \"~Feed name\" tags'. It can filter by tags using the following from the command line: `ebook-convert newsbeuter.recipe .epub --tags=\"english,newspaper\"`. More information at: http://waiting-for-dev.github.io/blog/2014/07/20/read-your-newsbeuter-feeds-in-epub-format/"
     tags = 'newsbeuter'
     oldest_article = 10
     remove_empty_feeds = True
