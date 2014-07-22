@@ -14,6 +14,7 @@ class NewsbeuterRecipe (BasicNewsRecipe):
     description = u"Dynamic recipe which is created from all feeds listed in newsbeuter url file (~/.newsbeuter/urls). Lines of that file must be in the format 'http://address_to_the_feed.com \"~Feed name\" tags'. It can filter by tags using the following from the command line: `ebook-convert newsbeuter.recipe .epub --tags=\"english,newspaper\"`. More information at: http://waiting-for-dev.github.io/blog/2014/07/20/read-your-newsbeuter-feeds-in-epub-format/"
     tags = 'newsbeuter'
     oldest_article = 10
+    max_articles_per_feed = 20
     remove_empty_feeds = True
     no_stylesheets = True
     extra_css = urllib.urlopen('https://raw.githubusercontent.com/laMarciana/gutenweb/master/dist/gutenweb.css').read().replace('@charset "UTF-8";', '')
